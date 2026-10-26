@@ -1,6 +1,6 @@
 // Datos iniciales. Solo se usan la primera vez: después manda localStorage.
-const img = (n) => `./assets/img/${n}.svg`;
-const snd = (n) => `./assets/sound/${n}.wav`;
+const img = (n) => `./assets/img/${n}.png`;
+const snd = (n) => `./assets/sound/${n}.ogg`;
 
 export const POKEMONES_INICIALES = [
   {
