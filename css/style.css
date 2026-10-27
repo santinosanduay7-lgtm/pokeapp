@@ -77,3 +77,68 @@ main { flex: 1; width: 100%; max-width: 1000px; margin: 0 auto; padding: 2rem 1.
 @media (max-width: 700px) {
   .detalle, .form--grid { grid-template-columns: 1fr; }
 }
+/* ===== FONDOS CON POKEMON ===== */
+
+/* Fondo general: puntitos suaves + Pokemon decorativos fijos en las esquinas */
+body {
+  background:
+    radial-gradient(#d5dcf2 1.5px, transparent 1.5px) 0 0 / 24px 24px,
+    linear-gradient(#eef3ff, #fdf6f6);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.16;
+  background:
+    url("../assets/img/pikachu.png") no-repeat right 3% bottom 6% / 210px,
+    url("../assets/img/charmander.png") no-repeat left 2% bottom 8% / 190px,
+    url("../assets/img/bulbasaur.png") no-repeat left 3% top 150px / 150px,
+    url("../assets/img/squirtle.png") no-repeat right 4% top 170px / 150px;
+}
+
+/* Landing: cielo, pasto y los 5 Pokemon al frente */
+.hero {
+  padding-bottom: 13rem;
+  background:
+    linear-gradient(#5fb04e, #5fb04e) bottom / 100% 34px no-repeat,
+    url("../assets/img/squirtle.png") no-repeat 8% 100% / 135px,
+    url("../assets/img/bulbasaur.png") no-repeat 24% 100% / 135px,
+    url("../assets/img/pikachu.png") no-repeat 50% 100% / 175px,
+    url("../assets/img/charmander.png") no-repeat 76% 100% / 135px,
+    url("../assets/img/eevee.png") no-repeat 92% 100% / 135px,
+    linear-gradient(#7cc4ff 0%, #d6efff 70%, #eaf8ff 100%);
+}
+.hero h1 { color: var(--ink); text-shadow: 3px 3px 0 var(--amarillo); }
+
+/* Tarjetas de la Pokedex: detalle de pokebola en la esquina */
+.card {
+  background:
+    radial-gradient(circle at 100% 0, rgba(238, 21, 21, 0.12) 0 55px, transparent 56px),
+    var(--blanco);
+}
+.card img { filter: drop-shadow(0 6px 4px rgba(0, 0, 0, 0.2)); }
+
+/* Detalle: foto sobre un circulo de color */
+.detalle__img {
+  background: radial-gradient(circle at center, #fff2a8 0 45%, #ffe066 46% 60%, transparent 61%);
+  border-radius: 16px;
+  padding: 1rem 0;
+}
+.detalle__img img { filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.25)); }
+
+/* Batalla: cielo arriba, pasto abajo */
+.combatientes {
+  background: linear-gradient(#8ecbff 0%, #d8f1ff 52%, #7ccf6b 52%, #4fa63f 100%);
+  min-height: 260px;
+  align-items: flex-end;
+}
+.lado img { filter: drop-shadow(0 8px 4px rgba(0, 0, 0, 0.3)); }
+
+/* Celular: sacar los dibujos de fondo para que no tapen */
+@media (max-width: 700px) {
+  body::before { display: none; }
+  .hero { padding-bottom: 9rem; }
+}
